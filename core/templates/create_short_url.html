@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Create short URL</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Create short URL</h1>
+        <form method="POST" action="/">
+            {% csrf_token %}
+            <input name="long_url" type="text" />
+            <input type="submit" value="Create"/>
+        </form>
+        {% if item %}
+            <p>Short URL: <a href="{{ item.short_code }}">{{ item.short_code }}</a></p>
+            <p>Long URL: <a href="{{ item.long_url }}">{{ item.long_url }}</a></p>
+        {% endif %}
+    </body>
+</html>
